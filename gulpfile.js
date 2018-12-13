@@ -4,7 +4,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-// var pump = require('pump');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 var criticalCss = require('gulp-critical-css');
@@ -27,9 +26,7 @@ gulp.task('style', function () {
 
 gulp.task('script', function () {
     return gulp.src('./src/js/**/*.js')
-
         .pipe(webpack())
-
         .pipe(concat('all.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'))
