@@ -18,7 +18,7 @@ gulp.task('style', function () {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(criticalCss())
+        // .pipe(criticalCss())
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./public'))
         .pipe(browserSync.stream());
@@ -50,6 +50,13 @@ gulp.task('watch', function () {
 gulp.task('clean', function () {
      return del(['./public']);
 });
+
+gulp.task ('criticalCss', gulp.series ('clean','style', function () {
+    return gulp.src('./public/main.css')
+        .pipe(criticalCss())
+        .pipe(gulp.dest('./public'))
+        .pipe(browserSync.stream());
+}));
 
 gulp.task('build', gulp.series('clean',
                         gulp.parallel('style', 'script')
