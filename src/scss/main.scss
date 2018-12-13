@@ -1,0 +1,17 @@
+@import "_variables";
+
+h1 {
+  color: $color;
+  font-style: 40px;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, white, black);
+}
+
+h2 {
+  critical: this;
+  color: red;
+}
+
